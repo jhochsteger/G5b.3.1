@@ -22,11 +22,15 @@ public class Stack <T>{
          return top;
     }
 
+    public T peek() throws StackEmptyException {
+        return data[findLastNotNull()];
+    }
+
     public int findFirstNull() throws StackFullException{
         for (int i = 0; i < data.length; i++) {
             if (data[i] == null) return i;
         }
-        throw new StackFullException("The stack.Stack is already full");
+        throw new StackFullException("The Stack is already full");
     }
 
     public int findLastNotNull() throws StackEmptyException{
@@ -38,7 +42,7 @@ public class Stack <T>{
 
     private int isStackEmpty(int i)throws StackEmptyException {
         if (i == 0) {
-            throw new StackEmptyException("The stack.Stack is empty");
+            throw new StackEmptyException("The Stack is empty");
         }
         return i;
     }
