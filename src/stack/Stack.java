@@ -1,5 +1,11 @@
 package stack;
 
+/**
+ * This class is a self written version of Stack
+ * @author Jonas Hochsteger
+ * @version 11-12-2020
+ * @param <E> the Datatype of th Object
+ */
 public class Stack <E>{
     private E[] data;
 

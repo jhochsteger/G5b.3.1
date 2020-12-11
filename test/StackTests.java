@@ -5,8 +5,14 @@ import stack.StackFullException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This class contains the Tests for the class Stack
+ * @author Jonas Hochsteger
+ * @version 11-12-2020
+ */
 class StackTests {
     @Test
+    //This test is used to show that Stack works with Integers
     void testIntegerStack() throws StackFullException, StackEmptyException {
         Stack<Integer> stack = new Stack<Integer>(5);
         stack.push(5);
@@ -20,6 +26,7 @@ class StackTests {
     }
 
     @Test
+    //This test is used to show that Stack works with Strings
     void testStringStack() throws StackFullException, StackEmptyException {
         Stack<String> stack = new Stack<String>(5);
         stack.push("a");
@@ -33,6 +40,7 @@ class StackTests {
     }
 
     @Test
+    // This test is used to show, that the list method works
     void testList() throws StackFullException, StackEmptyException {
         Stack<Integer> stack = new Stack<Integer>(5);
         stack.push(1);
@@ -43,6 +51,7 @@ class StackTests {
     }
 
     @Test
+    // This test is used to show the StackFullException
     void testFullStack() throws StackFullException {
         Stack<String> stack = new Stack<String>(5);
         stack.push("a");
@@ -54,6 +63,7 @@ class StackTests {
     }
 
     @Test
+    // This test is Uesd to show the StackEmptyException
     void testEmptyStack() throws StackEmptyException {
         Stack<Integer> stack = new Stack<Integer>(5);
         StackEmptyException thrown = assertThrows(StackEmptyException.class, stack::pop);
