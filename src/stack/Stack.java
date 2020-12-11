@@ -1,37 +1,37 @@
 package stack;
 
-public class Stack <T>{
-    private T[] data;
+public class Stack <E>{
+    private E[] data;
 
     public Stack() {
 
     }
 
     public Stack(int stackLength) {
-        this.data = (T[]) new Object[stackLength];
+        this.data = (E[]) new Object[stackLength];
     }
 
-    public void push(T newElement) throws StackFullException{
+    public void push(E newElement) throws StackFullException{
         data[findFirstNull()] = newElement;
     }
 
-    public T pop() throws StackEmptyException {
+    public E pop() throws StackEmptyException {
         int i = findLastNotNull();
-         T top = data[i];
+         E top = data[i];
          data[i] = null;
          return top;
     }
 
-    public T peek() throws StackEmptyException {
+    public E peek() throws StackEmptyException {
         return data[findLastNotNull()];
     }
 
-    public String list() {
-        StringBuilder bld = new StringBuilder();
-        for (int i = 0; i < data.length; i++) {
-            bld.append(data[i]);
+    public String list() throws StackEmptyException {
+        String content = "";
+        for (int i = 0; i < findLastNotNull()+1; i++) {
+            content += data[i] + ",";
         }
-        return bld.toString();
+        return content;
     }
 
     public int findFirstNull() throws StackFullException{
@@ -43,13 +43,13 @@ public class Stack <T>{
 
     public int findLastNotNull() throws StackEmptyException{
         for (int i = 0; i < data.length; i++) {
-            if (data[i] == null) return isStackEmpty(i) ;
+            if (data[i] == null) return isStackEmpty(i-1) ;
         }
         return data.length - 1;
     }
 
     private int isStackEmpty(int i)throws StackEmptyException {
-        if (i == 0) {
+        if (i == -1) {
             throw new StackEmptyException("The Stack is empty");
         }
         return i;
