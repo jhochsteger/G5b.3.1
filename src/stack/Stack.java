@@ -26,6 +26,14 @@ public class Stack <T>{
         return data[findLastNotNull()];
     }
 
+    public String list() {
+        StringBuilder bld = new StringBuilder();
+        for (int i = 0; i < data.length; i++) {
+            bld.append(data[i]);
+        }
+        return bld.toString();
+    }
+
     public int findFirstNull() throws StackFullException{
         for (int i = 0; i < data.length; i++) {
             if (data[i] == null) return i;
